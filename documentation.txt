@@ -1,0 +1,11 @@
+Firstly, I created an embedding model using the ResNet50 architecture. To combine this model with my custom output layer, I employed transfer learning techniques. 
+
+Next, I utilized OpenCV to collect data, specifically three pictures labeled as positive pictures 1, 2, and 3, as mentioned in the question. These pictures were passed through the embedding model to obtain their embedded values. 
+
+Subsequently, I developed a function to calculate similarity based on the Euclidean distance. I computed the similarity between the sample picture and the first and second pictures, selecting the lower value as it represents a higher threshold.
+
+Moving on, I proceeded to read the video and iterate through each frame. Here, I implemented background subtraction. This process involved computing a median background from the video and comparing it with the current frame. If any differences were detected, it indicated that an object in the current frame had moved. Consequently, the moving object was highlighted.
+
+Once the object was highlighted, its value was embedded using the same model. Similarity was then calculated using the previously described method. If the final value was lower than the threshold, a rectangle was used to highlight the object.
+
+Finally, I saved the edited frames into a new output video.
